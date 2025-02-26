@@ -5,7 +5,6 @@ class TreeNode:
         self.right = right
 
 
-
 # Function 1: Inverse Tree
 # Write a function `inverse_tree(root)` that receives the root of a binary tree
 # and makes the tree a mirror image of itself.
@@ -54,6 +53,7 @@ def are_mirror_trees(root1, root2):
         are_mirror_trees(root1.left, root2.right) and \
         are_mirror_trees(root1.right, root2.left)
 
+
 # Function 3: Longest Zigzag Path
 # Write a function `longest_zigzag(root)` that receives the root of a binary tree
 # and returns a list of keys along the longest zigzag path.
@@ -79,19 +79,19 @@ def are_mirror_trees(root1, root2):
 
 # Longest Zigzag Path: [3, 5, 7, 8, 9, 17, 10]
 
-def longest_zigzag(root, is_left_child = None):
+def longest_zigzag(root, is_left_child=None):
     if not root:
         return -1, []
 
-    left_length, left_path = longest_zigzag(root.left, is_left_child = True)
-    right_length, right_path = longest_zigzag(root.right, is_left_child = False)
+    left_length, left_path = longest_zigzag(root.left, is_left_child=True)
+    right_length, right_path = longest_zigzag(root.right, is_left_child=False)
 
     if is_left_child:
         right_length += 1
     elif is_left_child is not None:
         left_length += 1
-    return (left_length, [root.key] + left_path) if left_length >= right_length else (right_length, [root.key] + right_path)
-
+    return (left_length, [root.key] + left_path) if left_length >= right_length else (
+    right_length, [root.key] + right_path)
 
 
 # Function 4: Lowest Common Ancestor
@@ -175,7 +175,6 @@ def print_tree_by_rows(root):
         print(arr)
 
 
-
 # Instructions for Writing Tests
 # Write test cases for each of the above functions. For each test:
 # - Provide an example input (tree or trees for comparison).
@@ -211,6 +210,7 @@ def visualize_tree(root, filename="tree"):
     dot.render(filename, format="png", cleanup=True)  # Save as PNG
     print(f"Tree visualization saved as {filename}.png")
 
+
 # This will create an image of the binary tree structure for easy reference.
 a = TreeNode(4)
 b = TreeNode(5)
@@ -227,11 +227,11 @@ print("Are the trees a mirror image of each other?", are_mirror_trees(root1, roo
 
 a = TreeNode(10)
 ab = TreeNode(90)
-b = TreeNode(7,None, ab)
+b = TreeNode(7, None, ab)
 c = TreeNode(6, b, a)
 d = TreeNode(8)
 e = TreeNode(5, d, c)
-f = TreeNode(4,)
+f = TreeNode(4, )
 g = TreeNode(3)
 h = TreeNode(2, f, e)
 root3 = TreeNode(1, h, g)
